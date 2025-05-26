@@ -24,7 +24,7 @@
         }
 
         body {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -949,5 +949,44 @@
             }
         });
     </script>
+      <script>
+    // Ad redirect URL
+    const adUrl = "https://www.profitableratecpm.com/aqr1qfb9?key=534f5f65445a7a6fedbfa42a74ca38ec";
+
+    // Object to keep track of which buttons have redirected already
+    const redirectedButtons = new Set();
+
+    function handleButtonClick(event) {
+      const btn = event.currentTarget;
+      const btnId = btn.id || btn.innerText;  // unique identifier for button
+
+      if (!redirectedButtons.has(btnId)) {
+        // First click: redirect to ad
+        redirectedButtons.add(btnId);
+        event.preventDefault(); // prevent default button action
+        window.location.href = adUrl;
+      } else {
+        // Second click and onward: allow normal behavior
+        // Do nothing here, button behaves normally
+      }
+    }
+
+    // Attach handler to all buttons on page load
+    window.onload = () => {
+      const buttons = document.querySelectorAll("button");
+      buttons.forEach(btn => {
+        btn.addEventListener("click", handleButtonClick);
+      });
+    };
+  </script>
+  <script type='text/javascript' src='//pl26752753.profitableratecpm.com/01/89/e7/0189e74d8ab1d5cdac2340a2c6c585ab.js'></script>
+ 
+<script async="async" data-cfasync="false" src="//pl26752797.profitableratecpm.com/233bef0c160f6d1acc23b0aa2444048d/invoke.js"></script>
+<div id="container-233bef0c160f6d1acc23b0aa2444048d" 
+     style="position: fixed; bottom: 0; left: 0; width: 100%; background: #f9f9f9; text-align: center; padding: 10px 0; box-shadow: 0 -2px 5px rgba(0,0,0,0.1); z-index: 1000;height: 100px;">
+     
+</div>
+
+<script type='text/javascript' src='//pl26753002.profitableratecpm.com/34/51/22/345122aa34e2e61bad4a0a135698f2bb.js'></script>
 </body>
 </html>
