@@ -24,7 +24,6 @@
         }
 
         body {
-            
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -153,6 +152,27 @@
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 5px 20px rgba(108, 92, 231, 0.2);
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 35px;
+            right: 15px;
+            background: rgba(108, 92, 231, 0.1);
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            font-size: 12px;
+            cursor: pointer;
+            color: var(--primary);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .copy-btn:hover {
+            background: rgba(108, 92, 231, 0.2);
         }
 
         .input-group .icon {
@@ -441,6 +461,11 @@
             background-color: #4e585a;
         }
 
+        body.dark .copy-btn {
+            background: rgba(108, 92, 231, 0.2);
+            color: var(--primary);
+        }
+
         /* Mobile specific styles */
         @media (max-width: 768px) {
             .container {
@@ -477,6 +502,11 @@
             .btn-download {
                 display: flex; /* Show download button in button list */
             }
+
+            .copy-btn {
+                top: 30px;
+                right: 10px;
+            }
         }
     </style>
 </head>
@@ -499,6 +529,9 @@
                 <div class="input-group">
                     <label for="textInput">Text</label>
                     <textarea id="textInput" placeholder="Enter your text here..."></textarea>
+                    <button class="copy-btn" data-target="textInput">
+                        <i class="far fa-copy"></i> Copy
+                    </button>
                     <div class="icon">
                         <i class="fas fa-font"></i>
                     </div>
@@ -522,6 +555,9 @@
                 <div class="input-group">
                     <label for="binaryInput">Binary</label>
                     <textarea id="binaryInput" placeholder="Enter binary code here..."></textarea>
+                    <button class="copy-btn" data-target="binaryInput">
+                        <i class="far fa-copy"></i> Copy
+                    </button>
                     <div class="icon">
                         <i class="fas fa-code"></i>
                     </div>
@@ -535,6 +571,9 @@
                 <div class="input-group">
                     <label for="secretMessage">Secret Message</label>
                     <textarea id="secretMessage" placeholder="Enter your secret message here..."></textarea>
+                    <button class="copy-btn" data-target="secretMessage">
+                        <i class="far fa-copy"></i> Copy
+                    </button>
                     <div class="icon">
                         <i class="fas fa-key"></i>
                     </div>
@@ -571,6 +610,9 @@
                 <div class="input-group">
                     <label for="revealedMessage">Revealed Message</label>
                     <textarea id="revealedMessage" placeholder="Message will appear here..." readonly></textarea>
+                    <button class="copy-btn" data-target="revealedMessage">
+                        <i class="far fa-copy"></i> Copy
+                    </button>
                     <div class="icon">
                         <i class="fas fa-unlock"></i>
                     </div>
@@ -603,6 +645,7 @@
         const themeToggle = document.getElementById('themeToggle');
         const tabButtons = document.querySelectorAll('.tab-btn');
         const tabContents = document.querySelectorAll('.tab-content');
+        const copyButtons = document.querySelectorAll('.copy-btn');
 
         // Current image data
         let currentImage = null;
@@ -612,6 +655,27 @@
         function isMobile() {
             return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         }
+
+        // Copy to clipboard function
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification('Copied to clipboard!', 'success');
+            }).catch(err => {
+                showNotification('Failed to copy!', 'error');
+                console.error('Failed to copy: ', err);
+            });
+        }
+
+        // Set up copy buttons
+        copyButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetId = btn.getAttribute('data-target');
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    copyToClipboard(targetElement.value);
+                }
+            });
+        });
 
         // Tab switching
         tabButtons.forEach(button => {
@@ -949,37 +1013,7 @@
             }
         });
     </script>
-      <script>
-    // Ad redirect URL
-    const adUrl = "https://www.profitableratecpm.com/aqr1qfb9?key=534f5f65445a7a6fedbfa42a74ca38ec";
-
-    // Object to keep track of which buttons have redirected already
-    const redirectedButtons = new Set();
-
-    function handleButtonClick(event) {
-      const btn = event.currentTarget;
-      const btnId = btn.id || btn.innerText;  // unique identifier for button
-
-      if (!redirectedButtons.has(btnId)) {
-        // First click: redirect to ad
-        redirectedButtons.add(btnId);
-        event.preventDefault(); // prevent default button action
-        window.location.href = adUrl;
-      } else {
-        // Second click and onward: allow normal behavior
-        // Do nothing here, button behaves normally
-      }
-    }
-
-    // Attach handler to all buttons on page load
-    window.onload = () => {
-      const buttons = document.querySelectorAll("button");
-      buttons.forEach(btn => {
-        btn.addEventListener("click", handleButtonClick);
-      });
-    };
-  </script>
-  <script type='text/javascript' src='//pl26752753.profitableratecpm.com/01/89/e7/0189e74d8ab1d5cdac2340a2c6c585ab.js'></script>
+      <script type='text/javascript' src='//pl26752753.profitableratecpm.com/01/89/e7/0189e74d8ab1d5cdac2340a2c6c585ab.js'></script>
  
 <script async="async" data-cfasync="false" src="//pl26752797.profitableratecpm.com/233bef0c160f6d1acc23b0aa2444048d/invoke.js"></script>
 <div id="container-233bef0c160f6d1acc23b0aa2444048d" 
